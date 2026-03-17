@@ -1,4 +1,13 @@
-def query_search(table_name):
+# Dicionário com todas as tabelas presentes no banco de dados
+this_tables = {
+    "1":"categories",
+    "2":"customers",
+    "3":"employees",
+    "4":"orders",
+    "5":"products"
+}
+
+def query_search(table_name, cursor):
     query_string = ""
     # String para pegar o nome das colunas da tabela
     query_collumns = f'''
@@ -56,7 +65,7 @@ def insertion_string(table_name, table_collumns):
     return insert_str
 
 # função que cuida da busca de informações das tabelas
-def selection(table_name):
+def selection(table_name, cursor):
     query_string = ""
     # String para pegar o nome das colunas da tabela
     query_collumns = f'''
@@ -91,7 +100,7 @@ def selection(table_name):
         print(item)
 
 # função que cuida da inserção de novos items nas tabelas
-def insertion(table_name):
+def insertion(table_name, cursor):
     # Query enviada para o banco de dados para pegar o nome e o tipo de dado das colunas
     query_collumns = f'''
         SELECT 
@@ -129,3 +138,13 @@ def insertion(table_name):
     record = cursor.fetchone
     print(record)
 
+# imprime ao usuário quais as tabelas ele tem como selecionar
+def print_table_options():
+    option_tables = '''
+    1) Categories
+    2) Custumers
+    3) Employees
+    4) Orders
+    5) Products
+    '''
+    print(option_tables)
