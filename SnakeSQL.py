@@ -32,9 +32,19 @@ def query_search(table_name):
     for x in range(length):
         print(f"{x + 1}) {collumns[x][1]}")
     print(f"{length + 1}) All")
+    input_collumn = int(input())
 
     print("What is your condition?")
     condition = input()
+
+    query_string = f"SELECT {collumns[input_collumn - 1][1]} FROM {this_tables[table_name]} WHERE {condition};"
+
+    cursor.execute(query_string)
+    result = cursor.fetchall()
+    for item in result:
+        print(item)
+
+
 
     
 
@@ -376,7 +386,7 @@ try:
 
     
     while 1:
-        print("What would you like do to?")
+        print("What would you like do to? (Input anything else to close)")
         options = '''
         1) Select
         2) Insert
@@ -395,6 +405,13 @@ try:
             print_table_options()
             command = input()
             insertion(command)
+        elif command == '4':
+            print('Which table would you like to query?')
+            print_table_options()
+            command = input()
+            query_search(command)
+        else:
+            break
 
 
 except (Exception, Error) as error:
