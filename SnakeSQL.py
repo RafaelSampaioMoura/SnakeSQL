@@ -257,6 +257,10 @@ try:
             print_table_options()
             command = input()
             insertion(command, cursor)
+        elif command == '3':
+            print("Which table would you like to update?")
+            print_table_options()
+            command = input()
         elif command == '4':
             print('Which table would you like to query?')
             print_table_options()

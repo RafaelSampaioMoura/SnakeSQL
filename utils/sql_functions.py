@@ -138,6 +138,9 @@ def insertion(table_name, cursor):
     record = cursor.fetchone
     print(record)
 
+def update(table_name, cursor):
+    return
+
 # imprime ao usuário quais as tabelas ele tem como selecionar
 def print_table_options():
     option_tables = '''
