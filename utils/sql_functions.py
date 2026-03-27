@@ -1,10 +1,13 @@
 # Dicionário com todas as tabelas presentes no banco de dados
 this_tables = {
-    "1":"categories",
-    "2":"customers",
-    "3":"employees",
-    "4":"orders",
-    "5":"products"
+    "1":"usuario",
+    "2":"contato",
+    "3":"formacao",
+    "4":"instituicao",
+    "5":"empresa",
+    "6":"endereco",
+    "7":"cargo",
+    "8":"experiencia"
 }
 
 def query_search(table_name, cursor):
@@ -155,10 +158,13 @@ def update(table_name, cursor):
 # imprime ao usuário quais as tabelas ele tem como selecionar
 def print_table_options():
     option_tables = '''
-    1) Categories
-    2) Custumers
-    3) Employees
-    4) Orders
-    5) Products
+    1) Usuário
+    2) Contato
+    3) Formação
+    4) Instituição
+    5) Empresa
+    6) Endereço
+    7) Cargo
+    8) Experiência
     '''
     print(option_tables)
